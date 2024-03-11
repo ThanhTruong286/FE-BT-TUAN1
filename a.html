@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #000;
+            margin: 300px;
+        }
+
+        .khung {
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+            position: relative;
+            background: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ngăn chặn tràn ra khỏi "khung" và ẩn đi */
+        }
+
+        .button {
+            background: orange;
+            width: 90px;
+            height: 90px;
+            display: block;
+            border-radius: 50%;
+            text-align: center;
+            text-decoration: none;
+            line-height: 90px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+         
+        }
+    
+        .button:hover:before, 
+        .button:hover:after {
+            content: "";
+            background: #fff;
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            z-index: -2;
+            animation: grow 1s infinite linear;
+        }
+
+        .button::after {
+            animation-delay: .5s;
+        }
+        @keyframes grow {
+            0% { transform: scale(1); opacity: 0;}
+            100% { transform: scale(2); opacity: .8;}
+        }
+
+        .tron {
+            width: 80px;
+            height: 80px;
+            display: block;
+            border-radius: 50%;
+            text-align: center;
+            text-decoration: none;
+            line-height: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+         
+        }
+        .tron:hover:before, 
+        .tron:hover:after {
+            content: "";
+            background: orange;
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            z-index: -2;
+            animation: grow 1s infinite linear;
+        }
+
+        .tron::after {
+            animation-delay: .5s;
+        }
+        @keyframes grow {
+            0% { transform: scale(.2); opacity: 0;}
+            25% { transform: scale(.4); opacity: 0.4;}
+            50% { transform: scale(1); opacity: .7;}
+            75% { transform: scale(2); opacity: .4;}
+            100% { transform: scale(2.5); opacity: 0;}
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="khung">
+        <a href="#" class="button">
+            <div class="tron">
+                <div class="text">Mua</div>
+            </div>
+            
+        </a>
+    </div>
+</body>
+</html>
