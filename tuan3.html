@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20230611/pngtree-snowy-landscape-wallpaper-with-trees-snow-white-winter-image_2935694.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .btn{
+        background-color: black;
+        color: white;
+        margin: 50px;
+        cursor: pointer;
+        height: 50px;
+        width: 80px;
+    }
+    .btn:hover{
+        background-color: white;
+        color: black;
+    }
+    .snow{
+        background-color: white;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        display: inline-block;
+        animation: drop 5s infinite linear, moveX 5s infinite linear;
+        position: fixed;
+        filter: grayscale();
+    }
+    @keyframes drop {
+        0%{top: 0;}
+        100%{top: 100%;}
+    }
+    @keyframes moveX {
+        0%{transform: translateX(-30px);}
+        50%{transform: translateX(50px);}
+        100%{transform: translateX(-50px);}
+    }
+</style>
+<body>
+    <button class="btn" onclick="createSnow()">Add Snow</button>
+</body>
+<script>
+    function createSnow(){
+        const snow = document.createElement("div");
+        // snow.innerText = '😇';
+        snow.classList.add('snow');
+        snow.style.filter = "blur(" + Math.random() * 50 + "px" +")";
+        snow.style.left = Math.random() * window.innerWidth + "px";
+        snow.style.animationDuration = Math.random() * 2 + 1 + "s";
+        snow.style.opacity = Math.random() * 2;
+        snow.style.boxSizing = Math.random();
+        snow.style.height = Math.random() * 50 + 'px';
+        snow.style.width = snow.style.height;
+        document.body.appendChild(snow);
+
+        setTimeout(() => {
+            snow.remove();
+        }, 5000)
+    }
+</script>
+</html>
