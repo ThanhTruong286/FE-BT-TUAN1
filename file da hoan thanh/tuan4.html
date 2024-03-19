@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .container{
+        position: fixed;
+        height: 198px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    #img{
+        inset: 0;
+        position: absolute;
+        height: 198px;
+        width: 1600px;
+        background-image: url(public/img/wave.svg);
+        animation: run 10s 1s infinite linear;
+    }
+    #img:nth-child(2){
+        opacity: .5;
+        animation-duration: 2s;
+    }
+    @keyframes run {
+        0%{background-position: 0 0;}
+        100%{background-position: 1600px 0;}
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div id="img">
+        </div>
+        <div id="img">
+        </div>
+    </div>
+</body>
+</html>
